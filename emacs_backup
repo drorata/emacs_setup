@@ -1,0 +1,480 @@
+(setq load-path (cons "~/Library/elisp" load-path))
+
+;;;;;;;;;;;;;;;;;;;;;
+;; General
+;;;;;;;;;;;;;;;;;;;;;
+
+(setq hl-line-face 'hl-line)
+(global-hl-line-mode t) ; turn it on for all modes by default
+(set-face-background hl-line-face "gray25")
+
+;; Prevent beeping on warnings
+(setq visible-bell t)
+
+;; Delete trailing white spaces before saving
+(add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
+
+(setq tramp-default-method "ssh")
+(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
+
+;; Set behavior of END HOME keys
+;; --- the following came from:
+;; http://www.popcornfarmer.com/2008/04/mac-home-and-end-keys/
+(if (boundp 'osx-key-mode-map)
+    (setq hah-key-map osx-key-mode-map)
+  (setq hah-key-map global-map))
+(define-key hah-key-map [home] 'beginning-of-line)
+(define-key hah-key-map [end] 'end-of-line)
+(define-key hah-key-map [C-home] 'beginning-of-buffer)
+(define-key hah-key-map [C-end] 'end-of-buffer)
+
+;; Open files by pointing at them
+(global-set-key (kbd "C-x f") 'find-file-at-point)
+
+;; Revert to changes on disk automatically
+(global-auto-revert-mode t)
+
+;;;;;;;;;;;
+;; Enables and configure mathcing braces highlighting
+(show-paren-mode t)
+(set-face-background 'show-paren-match-face "#3580B0")
+(setq show-paren-style 'expression)
+;; Show in the mini-buffer the matching brace in case it is off screen.
+(defadvice show-paren-function
+  (after show-matching-paren-offscreen activate)
+  "If the matching paren is offscreen, show the matching line in the
+        echo area. Has no effect if the character before point is not of
+        the syntax class ')'."
+  (interactive)
+  (if (not (minibuffer-prompt))
+      (let ((matching-text nil))
+	;; Only call `blink-matching-open' if the character before point
+	;; is a close parentheses type character. Otherwise, there's not
+	;; really any point, and `blink-matching-open' would just echo
+	;; "Mismatched parentheses", which gets really annoying.
+	(if (char-equal (char-syntax (char-before (point))) ?\))
+	    (setq matching-text (blink-matching-open)))
+	(if (not (null matching-text))
+	    (message matching-text)))))
+
+;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
+(require 'autopair)
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+(setq default-truncate-lines t)
+(defun point-of-beginning-of-bottom-line ()
+  (save-excursion
+    (move-to-window-line -1)
+    (point)))
+
+(defun point-of-beginning-of-line ()
+  (save-excursion
+    (beginning-of-line)
+    (point)))
+
+(defun next-one-line () (interactive)
+  (if (= (point-of-beginning-of-bottom-line) (point-of-beginning-of-line))
+      (progn (scroll-up 1)
+             (next-line 1))
+    (next-line 1)))
+
+(defun point-of-beginning-of-top-line ()
+  (save-excursion
+    (move-to-window-line 0)
+    (point)))
+
+(defun previous-one-line () (interactive)
+  (if (= (point-of-beginning-of-top-line) (point-of-beginning-of-line))
+      (progn (scroll-down 1)
+             (previous-line 1))
+    (previous-line 1)))
+
+(global-set-key (kbd "<down>") 'next-one-line)
+(global-set-key (kbd "<up>") 'previous-one-line)
+;;; End of scrolling improve
+
+;; Auto indent for paseted text
+(dolist (command '(yank yank-pop))
+  (eval `(defadvice ,command (after indent-region activate)
+	   (and (not current-prefix-arg)
+		(member major-mode '(emacs-lisp-mode lisp-mode
+						     clojure-mode    scheme-mode
+						     haskell-mode    ruby-mode
+						     rspec-mode      python-mode
+						     c-mode          c++-mode
+						     objc-mode       latex-mode
+						     plain-tex-mode))
+		(let ((mark-even-if-inactive transient-mark-mode))
+		  (indent-region (region-beginning) (region-end) nil))))))
+
+;; Make cursor block
+(set-default 'cursor-type 'box)
+(blink-cursor-mode -1)
+
+;; Enable dot-language mode
+(load-file "~/Library/elisp/graphviz-dot-mode.el")
+
+;; Add CMAKE support
+(setq load-path (cons (expand-file-name "~/Library/elisp/") load-path))
+(require 'cmake-mode)
+(setq auto-mode-alist
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+		("\\.cmake\\'" . cmake-mode))
+	      auto-mode-alist))
+
+
+;;;;;;;;;;;;;;;;;;
+;; Compilation
+;;;;;;;;;;;;;;;;;;
+(setq compilation-window-height 8)
+(setq compilation-finish-function
+      (lambda (buf str)
+        (if (string-match "exited abnormally" str)
+            ;;there were errors
+            (message "compilation errors, press C-x ` to visit")
+          ;;no errors, make the compilation window go away in 0.5 seconds
+          (run-at-time 0.5 nil 'delete-windows-on buf)
+	  (message "NO COMPILATION ERRORS! Thank you dear compiler..."))))
+
+;; Wraps lines in the compilation buffer.
+;; http://stackoverflow.com/questions/1292936/line-wrapping-within-emacs-compilation-buffer
+(defun my-compilation-mode-hook ()
+  (setq truncate-lines nil)
+  (setq truncate-partial-width-windows nil))
+(add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
+
+;;;;;;;;;;;;;;;;;;;
+;; C++
+;;;;;;;;;;;;;;;;;;;
+
+;; Highlight lines of length greater then 80 chars.
+(add-hook 'c++-mode-hook
+	  '(lambda () (highlight-lines-matching-regexp ".\\{81\\}" 'hi-yellow)))
+
+;; Enable auto save before compilation in c++ mode
+(add-hook 'c++-mode-hook '(lambda ()
+			    (progn (make-local-variable 'compilation-ask-about-save)
+				   (setq compilation-ask-about-save nil))))
+
+(add-hook 'c++-mode-hook
+	  (outline-minor-mode 1))
+
+;; Comment/uncomment region
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+	(setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)
+    (next-line)))
+
+					;(define-key c-mode-base-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
+
+;; Add compiling bindings to C++ mode
+(add-hook 'c++-mode-hook
+	  '(lambda ()
+	     (define-key c++-mode-map "\C-c\C-c" 'compile)
+	     (define-key c++-mode-map "\C-c\C-e" 'next-error)
+	     (define-key c++-mode-map "\C-c\C-r" 'recompile)
+	     (define-key c++-mode-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
+	     ))
+
+;; Auto use hs-minor-mode in C++ mode and assign key bindings
+;; Enables block fold/unfold
+(add-hook 'c-mode-common-hook
+	  (lambda()
+	    (local-set-key (kbd "C-c <right>") 'hs-show-block)
+	    (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+	    (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+	    (local-set-key (kbd "C-c <down>")  'hs-show-all)
+	    (hs-minor-mode t)))
+
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+
+;; Handles TODOS in c++ see
+;; http://stackoverflow.com/questions/2367611/emacs-highlighting-todo-only-in-comments for additional options
+(require 'fic-mode)
+(add-hook 'c++-mode-hook '(lambda () (fic-mode 1)))
+
+;; Add a mark on lines containing TODO string
+(defun annotate-todo ()
+  "put fringe marker on TODO: lines in the curent buffer"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "TODO:" nil t)
+      (let ((overlay (make-overlay (- (point) 5) (point))))
+        (overlay-put overlay 'before-string (propertize "A"
+                                                        'display '(left-fringe right-triangle)))))))
+(add-hook 'c-mode-common-hook 'annotate-todo)
+
+;; Line numbering mode
+(add-hook 'c++-mode-hook
+ 	  (lambda () (linum-mode 1)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Git
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path
+	     "~/Library/elisp/magit-1.2.0")
+(require 'magit)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Gnuplot
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; these lines enable the use of gnuplot mode
+(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
+(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
+
+;; this line automatically causes all files with the .gp extension to
+;; be loaded into gnuplot mode
+(setq auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist))
+
+;; This line binds the function-9 key so that it opens a buffer into
+;; gnuplot mode
+;(global-set-key [(f9)] 'gnuplot-make-buffer)
+
+;; end of line for gnuplot-mode
+;;--------------------------------------------------------------------
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; YetAnotherSnippet
+;; http://code.google.com/p/yasnippet/
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+					; Init:
+(add-to-list 'load-path
+	     "~/Library/elisp/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+
+(yas/initialize)
+
+(setq yas/triggers-in-field t); Enable nested triggering of snippets
+;; Develop and keep personal snippets
+(setq yas/root-directory "~/Library/elisp/yas-snippets")
+;; Load the snippets
+(yas/load-directory yas/root-directory)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org Mode related
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq load-path (cons "/Users/drorata/Library/elisp/org/org-7.9.2/lisp" load-path))
+
+;; Assigns org-mode to .org files
+(require 'org)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;; Auto enable flyspell-mode
+(add-hook 'org-mode-hook 'turn-on-flyspell)
+
+;; Use text-mode abbrev table in org-mode
+(add-hook 'org-mode-hook '(lambda () (setq local-abbrev-table text-mode-abbrev-table)))
+
+;; Make use of refTeX in org-mode
+(defun org-mode-reftex-setup ()
+  (load-library "reftex")
+  (and (buffer-file-name)
+       (file-exists-p (buffer-file-name))
+       (reftex-parse-all))
+  (define-key org-mode-map (kbd "C-c )") 'reftex-citation)
+  )
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
+
+;; Open indirect buffer in new frame
+(setq org-indirect-buffer-display 'new-frame)
+
+;; Set common TAGS
+;; Check: http://sachachua.com/blog/2008/01/tagging-in-org-plus-bonus-code-for-timeclocks-and-tags/
+(setq org-tag-alist '(("interesting_questions" . ?i)
+		      ("mittagseminar" . ?m)
+		      ))
+
+;; set latexmk the default LaTeX compiler for org-mode and in general
+(setq org-latex-to-pdf-process (list "latexmk -f -pdf %f"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;LaTeX Related
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil) ; Master file support
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+;; Enable LaTeX-math-mode by default
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+;; Auto enable flyspell-mode
+(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+(setq flyspell-auto-correct-binding (kbd "C-~")) ; or a binding of your choice
+
+					;(add-hook 'TeX-mode-hook (lambda () (define-key TeX-mode-map "<M-tab>" 'TeX-complete-macro)))
+
+;; Enable clevref in tex-mode
+(defun reftex-format-cref (label def-fmt)
+  (format "\\cref{%s}" label))
+(setq reftex-format-ref-function 'reftex-format-cref)
+
+;; So that RefTeX recognizes bibliographies in \addbibresource
+					;(setq reftex-bibliography-commands (quote ("addbibresource")))
+
+(setq reftex-label-alist
+      '(
+	("claim" ?h "th:" nil t)
+	("theorem" ?h "th:" nil t)
+	("lemma" ?h "th:" nil t)
+	("corollary" ?h "th:" nil t)
+	("definition" ?d "def:" nil t)
+	("remark" ?r "rmrk:" nil t)
+	)
+      )
+
+;; Adds environments to the C-c C-e
+;; http://superuser.com/questions/122410/adding-autocomplete-options-to-auctex-c-c-c-e
+;; See: http://www.gnu.org/software/auctex/manual/auctex/Adding-Environments.html#Adding-Environments
+;; for further details
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (LaTeX-add-environments
+	     '("tikzpicture")
+	     '("scope")
+	     '("align" LaTeX-env-label)
+	     '("align*")
+	     '("aligned" LaTeX-env-label)
+	     '("theorem" LaTeX-env-label)
+	     '("lemma" LaTeX-env-label)
+	     '("corollary" LaTeX-env-label)
+	     '("proof")
+	     '("remark" LaTeX-env-label)
+	     '("claim" LaTeX-env-label)
+	     '("definition" LaTeX-env-label)
+	     )
+	    )
+	  )
+
+;; Enable outline-mode in LaTeX-mode
+(defun turn-on-outline-minor-mode ()
+  (outline-minor-mode 1))
+(add-hook 'LaTeX-mode-hook 'turn-on-outline-minor-mode)
+(add-hook 'latex-mode-hook 'turn-on-outline-minor-mode)
+(setq outline-minor-mode-prefix "\C-c\C-o") ; Or something else
+
+;; Add support of latexmk
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (push
+			      '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+				:help "Run Latexmk on file")
+			      TeX-command-list)))
+
+'("%(-PDF)"
+  (lambda ()
+    (if (and (not TeX-Omega-mode)
+             (or TeX-PDF-mode TeX-DVI-via-PDFTeX))
+        "-pdf" "")))
+
+;; This part should bind C-0 to the following seuqence:
+;; 1. Save the master file and all depending ones
+;; 2. run latemk
+;; 3. show errors if there are.
+;; check the following links:
+;; http://stackoverflow.com/questions/7885853/emacs-latexmk-function-throws-me-into-an-empty-buffer
+;; http://stackoverflow.com/questions/7587287/how-do-i-bind-latexmk-to-one-key-in-emacs-and-have-it-show-errors-if-there-are-a
+;; (require 'tex-buf) ; Seems not to be needed. I removed to enable standard emacs
+(defun run-latexmk ()
+  (interactive)
+  (let ((TeX-save-query nil)
+        (TeX-process-asynchronous nil)
+        (master-file (TeX-master-file)))
+    (TeX-save-document "")
+    (TeX-run-TeX "latexmk"
+		 (TeX-command-expand "latexmk -pdf %t" 'TeX-master-file)
+		 master-file)
+    (if (plist-get TeX-error-report-switches (intern master-file))
+        (TeX-next-error t)
+      (minibuffer-message "latexmk done"))))
+
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "C-0") #'run-latexmk))
+	  )
+
+;; Automatically activate TeX-fold-mode.
+;; http://tex.stackexchange.com/questions/52179/what-is-your-favorite-emacs-and-or-auctex-command-trick
+(add-hook 'TeX-mode-hook
+	  (lambda () (TeX-fold-mode 1)))
+
+;;
+					; Set additional fontifications of macros
+					; http://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
+(setq font-latex-match-textual-keywords
+      '(
+        ("todo" "[{")))
+
+;;;;;; End of LaTeX related
+
+
+
+;; ;;;;;;;;;;
+;; ;; TRASH
+;; ;;;;;;;;;;
+;; (setq package-archives '(("ELPA" . "http://tromey.com/elpa/")
+;; 			 ("gnu" . "http://elpa.gnu.org/packages/")
+;; 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+;; (require 'package)
+;; (package-initialize)
+
+;; ;; Open a new window for the compilation process
+;; ;; (setq special-display-buffer-names
+;; ;;       `(("*compilation*" . ((name . "*compilation*")
+;; ;;                             ,@default-frame-st
+;; ;;                             (left . (- 1))
+;; ;;                             (top . 0)))))
+
+;; ;; org2blog
+;; (require 'xml-rpc)
+;; (setq load-path (cons "~/Library/elisp/org2blog/" load-path))
+;; (require 'org2blog-autoloads)
+
+;; (setq org2blog/wp-blog-alist
+;;       '(("drorata"
+;; 	 :url "http://drorata.wordpress.com/xmlrpc.php"
+;; 	 :username "drorata")
+;; 	("TeX.SE-Blog"
+;; 	 :url "http://tex.blogoverflow.com/xmlrpc.php"
+;; 	 :username "droratariah")
+;; 	)
+;;       )
+
+;; ;; org to LaTeX beamer
+;; ;; Add
+;; ;;#+LaTeX_CLASS: beamer
+;; ;; to the premable.
+;; (require 'org-latex)
+;; (unless (boundp 'org-export-latex-classes)
+;;   (setq org-export-latex-classes nil))
+;; (add-to-list 'org-export-latex-classes
+;;              '("beamer"
+;;                "\\documentclass[11pt]{beamer}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{hyperref}\n\\usepackage{verbatim}\n"
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\begin{frame}\\frametitle{%s}" "\\end{frame}"
+;;                 "\\begin{frame}\\frametitle{%s}" "\\end{frame}")))
+
+;; Code browser
+					;(add-to-list 'load-path
+					;	     "~/Library/elisp/ecb-snap")
+					;(setq stack-trace-on-error t)
+					;(require 'ecb)
