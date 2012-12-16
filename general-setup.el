@@ -11,28 +11,13 @@
 ;; Delete trailing white spaces before saving
 (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
 
-(setq tramp-default-method "ssh")
-(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
-
-;; Set behavior of END HOME keys
-;; --- the following came from:
-;; http://www.popcornfarmer.com/2008/04/mac-home-and-end-keys/
-(if (boundp 'osx-key-mode-map)
-    (setq hah-key-map osx-key-mode-map)
-  (setq hah-key-map global-map))
-(define-key hah-key-map [home] 'beginning-of-line)
-(define-key hah-key-map [end] 'end-of-line)
-(define-key hah-key-map [C-home] 'beginning-of-buffer)
-(define-key hah-key-map [C-end] 'end-of-buffer)
-
-;; Open files by pointing at them
-(global-set-key (kbd "C-x f") 'find-file-at-point)
-
 ;; Revert to changes on disk automatically
 (global-auto-revert-mode t)
 
-;;;;;;;;;;;
+;;---------------------------------------------------
+;; Matching braces highlighting
 ;; Enables and configure mathcing braces highlighting
+;;---------------------------------------------------
 (show-paren-mode t)
 (set-face-background 'show-paren-match-face "#3580B0")
 (setq show-paren-style 'expression)
@@ -56,8 +41,6 @@
 
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
-
-(load "improved-scrolling")
 
 ;; Auto indent for paseted text
 (dolist (command '(yank yank-pop))
@@ -87,13 +70,15 @@
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
 
-;; Enable ido mode
-;;; Interactive do, find-file and iswitchb replacement with fuzzy/flex matching.
+;;-----------------------------
+;; ido mode
+;; setting for ido mode
+;; Interactive do, find-file and iswitchb replacement with fuzzy/flex matching.
+;;-----------------------------
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 (setq ido-enable-last-directory-history nil) ; forget latest selected directory names
-
 (custom-set-faces
  '(ido-subdir ((t (:foreground "#D991CE")))) ;; Face used by ido for highlighting subdirs in the alternatives.
 ;; '(ido-first-match ((t (:foreground "#ccff66")))) ;; Face used by ido for highlighting first match.
@@ -101,7 +86,6 @@
 ;; '(ido-indicator ((t (:foreground "#ffffff")))) ;; Face used by ido for highlighting its indicators (don't actually use this)
 ;; '(ido-incomplete-regexp ((t (:foreground "#ffffff")))) ;; Ido face for indicating incomplete regexps. (don't use this either)
 )
-
 
 ;; Enable server
 (server-start)

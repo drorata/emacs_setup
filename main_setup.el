@@ -1,7 +1,9 @@
 (load "general-setup")
-
+(load "improved-scrolling")
+(load "tramp-setup")
+(load "bindings")
 ;; TODO: has to be tested!
-;(load "tabs-setup")
+(load "tabs-setup")
 
 (load "compilation")
 (load "git-setup")

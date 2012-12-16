@@ -15,7 +15,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hippie expand.  Groovy vans with tie-dyes.
-
 (setq hippie-expand-try-functions-list
       '(yas-hippie-try-expand
         try-expand-dabbrev
