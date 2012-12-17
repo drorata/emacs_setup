@@ -4,7 +4,6 @@
 (load "bindings")
 ;; TODO: has to be tested!
 (load "tabs-setup")
-
 (load "compilation")
 (load "git-setup")
 (load "cxx-setup")
