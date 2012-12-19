@@ -12,8 +12,6 @@
 ;; Open files by pointing at them
 (global-set-key (kbd "C-x f") 'find-file-at-point)
 
-;; ibuffer > list-buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 ;; Toggle full screen mode
+;; TODO: this doesn't work in c++ mode
 (global-set-key (kbd "C-c C-l") 'aquamacs-toggle-full-frame)

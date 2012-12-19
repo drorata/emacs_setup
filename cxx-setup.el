@@ -34,7 +34,7 @@
 	     (define-key c++-mode-map "\C-c\C-e" 'next-error)
 	     (define-key c++-mode-map "\C-c\C-r" 'recompile)
 	     (define-key c++-mode-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
-	     (define-key c++-mode-map (kbd "\M-\r") 'c-indent-new-comment-line) ;; This is also binded to M-j
+	     (define-key c++-mode-map (kbd "M-RET") 'c-indent-new-comment-line) ;; This is also binded to M-j
 	     ))
 
 ;; Auto use hs-minor-mode in C++ mode and assign key bindings
