@@ -14,3 +14,6 @@
 
 ;; ibuffer > list-buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Toggle full screen mode
+(global-set-key (kbd "C-c C-l") 'aquamacs-toggle-full-frame)
