@@ -16,6 +16,8 @@
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)))
+               ("Directories"
+                (mode . dired-mode))
                ))))
 
 (add-hook 'ibuffer-mode-hook
