@@ -12,3 +12,4 @@
 (load "yas-setup")
 (load "org-mode-setup")
 (load "latex-related-setup")
+(load "ack-setup")
