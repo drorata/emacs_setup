@@ -13,5 +13,9 @@
 (global-set-key (kbd "C-x f") 'find-file-at-point)
 
 ;; Toggle full screen mode
-;; TODO: this doesn't work in c++ mode
+;; For this to work in c++-mode, I had to define this
+;; this binding also as a hook of the mode
 (global-set-key (kbd "C-c C-l") 'aquamacs-toggle-full-frame)
+
+;; Duplicate M-j binding
+(global-set-key (kbd "M-RET") 'indent-new-comment-line)

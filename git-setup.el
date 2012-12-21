@@ -19,3 +19,13 @@
 ;; Add flyspell mode to the log edit mode of magit
 (add-hook 'magit-log-edit-mode-hook
           (lambda () (flyspell-mode 1)))
+
+;; change magit diff colors
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green")
+     (set-face-foreground 'magit-diff-del "orange")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))))
+
+;; TODO: Disable yasnippet in magit-mode

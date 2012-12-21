@@ -25,8 +25,6 @@
     (comment-or-uncomment-region beg end)
     (next-line)))
 
-					;(define-key c-mode-base-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
-
 ;; Add compiling bindings to C++ mode
 (add-hook 'c++-mode-hook
 	  '(lambda ()
@@ -34,7 +32,8 @@
 	     (define-key c++-mode-map "\C-c\C-e" 'next-error)
 	     (define-key c++-mode-map "\C-c\C-r" 'recompile)
 	     (define-key c++-mode-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
-	     (define-key c++-mode-map (kbd "M-RET") 'c-indent-new-comment-line) ;; This is also binded to M-j
+       ;;	     (define-key c++-mode-map (kbd "M-RET") 'c-indent-new-comment-line) ;; This is also binded to M-j
+       (define-key c++-mode-map (kbd "C-c C-l") 'aquamacs-toggle-full-frame)
 	     ))
 
 ;; Auto use hs-minor-mode in C++ mode and assign key bindings
