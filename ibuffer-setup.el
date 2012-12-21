@@ -16,6 +16,8 @@
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)))
+               ("LaTeX"
+                (mode . latex-mode))
                ("Directories"
                 (mode . dired-mode))
                ))))

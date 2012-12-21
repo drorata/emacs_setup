@@ -19,3 +19,5 @@
 
 ;; Duplicate M-j binding
 (global-set-key (kbd "M-RET") 'indent-new-comment-line)
+
+;; TODO: Add a bind to toggle whitespace-mode
