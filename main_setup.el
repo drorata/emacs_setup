@@ -1,4 +1,5 @@
 (load "general-setup")
+(load "clock-setup")
 (load "improved-scrolling")
 (load "tramp-setup")
 (load "bindings")
