@@ -27,6 +27,17 @@
       '(("t" "Todo" entry (file+headline (concat org-directory "/gtd.org") "Tasks")
          "* TODO %?\n  %i\n  %a")))
 
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file (concat org-directory "/gtd.org"))
+               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("r" "respond" entry (file (concat org-directory "/gtd.org"))
+               "* TODO Respond to %:from on %:subject\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("n" "note" entry (file (concat org-directory "/gtd.org"))
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "Journal" entry (file+datetree (concat org-directory "/diary.org"))
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              )))
+
 ;; Make use of refTeX in org-mode
 (defun org-mode-reftex-setup ()
   (load-library "reftex")
