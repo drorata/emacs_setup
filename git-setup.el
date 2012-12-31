@@ -28,4 +28,6 @@
      (when (not window-system)
        (set-face-background 'magit-item-highlight "black"))))
 
+(global-set-key  (kbd "C-c C-v") 'magit-status)
+
 ;; TODO: Disable yasnippet in magit-mode
