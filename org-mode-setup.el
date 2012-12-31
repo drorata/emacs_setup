@@ -4,6 +4,8 @@
 
 (setq load-path (cons "/Users/drorata/Library/elisp/org/org-7.9.2/lisp" load-path))
 
+(setq org-directory "~/Dropbox/org")
+
 ;; Assigns org-mode to .org files
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -16,6 +18,14 @@
 
 ;; Use text-mode abbrev table in org-mode
 (add-hook 'org-mode-hook '(lambda () (setq local-abbrev-table text-mode-abbrev-table)))
+
+;; Capture-org
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline (concat org-directory "/gtd.org") "Tasks")
+         "* TODO %?\n  %i\n  %a")))
 
 ;; Make use of refTeX in org-mode
 (defun org-mode-reftex-setup ()
