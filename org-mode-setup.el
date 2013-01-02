@@ -16,6 +16,10 @@
 ;; Auto enable flyspell-mode
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 
+;; Enable org-indent-mode for org buffers
+(add-hook 'org-mode-hook
+          (lambda ()(org-indent-mode t)) t)
+
 ;; Use text-mode abbrev table in org-mode
 (add-hook 'org-mode-hook '(lambda () (setq local-abbrev-table text-mode-abbrev-table)))
 
