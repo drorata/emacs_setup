@@ -111,10 +111,14 @@
 	  (lambda () (TeX-fold-mode 1)))
 
 ;;
-					; Set additional fontifications of macros
-					; http://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
+;; Set additional fontifications of macros
+;; http://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
 (setq font-latex-match-textual-keywords
-      '(
-        ("todo" "[{")))
+      '(("todo" "[{"))
+      )
+(setq font-latex-match-reference-keywords
+      '(("cref" "*[{")
+        ("Cref" "*[{"))
+      )
 
 ;;;;;; End of LaTeX related
