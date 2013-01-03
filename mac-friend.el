@@ -6,8 +6,7 @@
 (when (boundp 'mouse-wheel-scroll-amount)
   (setq mouse-wheel-scroll-amount '(0.01)))
 
-;;(setq mac-option-modifier 'option)
-;;(setq mac-command-modifier 'meta )
+;; TODO: has to be tested
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 

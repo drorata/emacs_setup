@@ -2,7 +2,7 @@
 ;; Org Mode related
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq load-path (cons "/Users/drorata/Library/elisp/org/org-7.9.2/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/packages/org/org-7.9.2/lisp" load-path))
 
 (setq org-directory "~/Dropbox/org")
 

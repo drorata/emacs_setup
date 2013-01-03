@@ -2,6 +2,7 @@
 ;;LaTeX Related
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil) ; Master file support
@@ -121,4 +122,13 @@
         ("Cref" "*[{"))
       )
 
-;;;;;; End of LaTeX related
+;;;;;
+;; Enable emacs->skim sync
+;; For this to work, TeX-PDF-mode should be enabled!
+(setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+(setq TeX-view-program-list
+      '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
+;; COMMAND-SHIFT-CLICK to jump to the location in the PDF
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "<S-s-mouse-1>") #'TeX-view))
+          )
