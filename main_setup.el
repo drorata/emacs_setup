@@ -17,3 +17,5 @@
 (load "org-mode-setup")
 (load "latex-related-setup")
 (load "ack-setup")
+(load "dot-lang-setup")
+(load "cmake-setup")

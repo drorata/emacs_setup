@@ -1,14 +1,5 @@
 (setq load-path (cons "~/Library/elisp" load-path))
 
-;;---------------------
-;; Default frame's size
-;;---------------------
-;; In general this should be enough. However, since I'm using
-;; Aquamacs, I had to add something similar to
-;; ~/Library/Preferences/Aquamacs Emacs/customizations.el
-;; (add-to-list 'default-frame-alist '(height . 24))
-;; (add-to-list 'default-frame-alist '(width . 82))
-
 ;; Highlight current line
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t) ; turn it on for all modes by default
@@ -68,16 +59,6 @@
 ;; Make cursor block
 (set-default 'cursor-type 'box)
 (blink-cursor-mode -1)
-
-;; Enable dot-language mode
-(load-file "~/Library/elisp/graphviz-dot-mode.el")
-
-;; Add CMAKE support
-(require 'cmake-mode)
-(setq auto-mode-alist
-      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
-		("\\.cmake\\'" . cmake-mode))
-	      auto-mode-alist))
 
 ;; Enable server
 (server-start)
