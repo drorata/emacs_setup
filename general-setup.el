@@ -9,6 +9,10 @@
 ;; Highlight current line
 (global-hl-line-mode t) ; turn it on for all modes by default
 
+;; Line/column number modes
+(setq line-number-mode t)
+(setq column-number-mode t)
+
 ;; Prevent beeping on warnings
 (setq visible-bell t)
 
@@ -33,14 +37,14 @@
   (interactive)
   (if (not (minibuffer-prompt))
       (let ((matching-text nil))
-	;; Only call `blink-matching-open' if the character before point
-	;; is a close parentheses type character. Otherwise, there's not
-	;; really any point, and `blink-matching-open' would just echo
-	;; "Mismatched parentheses", which gets really annoying.
-	(if (char-equal (char-syntax (char-before (point))) ?\))
-	    (setq matching-text (blink-matching-open)))
-	(if (not (null matching-text))
-	    (message matching-text)))))
+        ;; Only call `blink-matching-open' if the character before point
+        ;; is a close parentheses type character. Otherwise, there's not
+        ;; really any point, and `blink-matching-open' would just echo
+        ;; "Mismatched parentheses", which gets really annoying.
+        (if (char-equal (char-syntax (char-before (point))) ?\))
+            (setq matching-text (blink-matching-open)))
+        (if (not (null matching-text))
+            (message matching-text)))))
 
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
