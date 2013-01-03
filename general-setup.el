@@ -1,5 +1,9 @@
 (setq load-path (cons "~/Library/elisp" load-path))
 
+;; Recursive loading of paths in the .emacs.d directory
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; Disable welcome/startup screen/message
 (setq inhibit-startup-message t)
 
