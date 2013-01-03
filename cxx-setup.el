@@ -32,7 +32,6 @@
 	     (define-key c++-mode-map "\C-c\C-e" 'next-error)
 	     (define-key c++-mode-map "\C-c\C-r" 'recompile)
 	     (define-key c++-mode-map (kbd "C-/") 'comment-or-uncomment-region-or-line)
-       ;;	     (define-key c++-mode-map (kbd "M-RET") 'c-indent-new-comment-line) ;; This is also binded to M-j
        (define-key c++-mode-map (kbd "C-c C-l") 'aquamacs-toggle-full-frame)
 	     ))
 

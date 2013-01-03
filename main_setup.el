@@ -1,6 +1,7 @@
 (load "general-setup")
 (load "bindings")
 (load "theme")
+(load "ido-setup")
 (load "mac-friend")
 (load "clock-setup")
 (load "improved-scrolling")
@@ -8,7 +9,6 @@
 (load "ibuffer-setup")
 ;; TODO: has to be tested!
 (load "tabs-setup")
-(load "ido-setup")
 (load "compilation")
 (load "git-setup")
 (load "cxx-setup")
