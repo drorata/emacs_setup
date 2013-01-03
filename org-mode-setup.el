@@ -59,6 +59,7 @@
                       ("mittagseminar" . ?m)
                       ("private" . ?p)
                       ("work" .?w)
+                      ("emacs" .?e)
                       ))
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep

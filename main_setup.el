@@ -3,7 +3,7 @@
 (load "theme")
 (load "mac-friend")
 (load "clock-setup")
-(load "improved-scrolling")
+;; (load "improved-scrolling")
 (load "tramp-setup")
 (load "ibuffer-setup")
 ;; TODO: has to be tested!
