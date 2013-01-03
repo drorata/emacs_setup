@@ -1,10 +1,10 @@
 (load "general-setup")
-;; (load "theme")
-;; (load "mac-friend")
+(load "bindings")
+(load "theme")
+(load "mac-friend")
 (load "clock-setup")
 (load "improved-scrolling")
 (load "tramp-setup")
-(load "bindings")
 (load "ibuffer-setup")
 ;; TODO: has to be tested!
 (load "tabs-setup")

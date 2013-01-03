@@ -6,7 +6,21 @@
 (when (boundp 'mouse-wheel-scroll-amount)
   (setq mouse-wheel-scroll-amount '(0.01)))
 
-;;(setq mac-option-modifier 'option)a
+;;(setq mac-option-modifier 'option)
 ;;(setq mac-command-modifier 'meta )
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
+
+(global-set-key (kbd "<s-right>") 'move-end-of-line)
+(global-set-key (kbd "<s-left>") 'move-beginning-of-line)
+(global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+(global-set-key (kbd "<s-down>") 'end-of-buffer)
+
+;; define the function to kill the characters from the cursor
+;; to the beginning of the current line
+(defun backward-kill-line (arg)
+  "Kill chars backward until encountering the end of a line."
+  (interactive "p")
+  (kill-line 0))
+;; you may want to bind it to a different key
+(global-set-key (kbd "<s-backspace>") 'backward-kill-line)

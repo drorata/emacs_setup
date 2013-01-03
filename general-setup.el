@@ -3,7 +3,6 @@
 ;; Highlight current line
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t) ; turn it on for all modes by default
-(set-face-background hl-line-face "gray25")
 
 ;; Prevent beeping on warnings
 (setq visible-bell t)
@@ -19,7 +18,6 @@
 ;; Enables and configure mathcing braces highlighting
 ;;---------------------------------------------------
 (show-paren-mode t)
-(set-face-background 'show-paren-match-face "#3580B0")
 (setq show-paren-style 'expression)
 ;; Show in the mini-buffer the matching brace in case it is off screen.
 (defadvice show-paren-function
