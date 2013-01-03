@@ -1,5 +1,11 @@
 (setq load-path (cons "~/Library/elisp" load-path))
 
+;; Set the right aspell.
+;; You have to install aspell - I did it using macports:
+;; 1. port install aspellen
+;; 2. sudo port install aspell-english
+(setq ispell-program-name "/opt/local/bin/aspell")
+
 ;; Highlight current line
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t) ; turn it on for all modes by default
