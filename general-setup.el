@@ -1,5 +1,8 @@
 (setq load-path (cons "~/Library/elisp" load-path))
 
+;; Disable welcome/startup screen/message
+(setq inhibit-startup-message t)
+
 ;; Set the right aspell.
 ;; You have to install aspell - I did it using macports:
 ;; 1. port install aspellen
