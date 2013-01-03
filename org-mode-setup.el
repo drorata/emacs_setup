@@ -6,6 +6,9 @@
 
 (setq org-directory "~/Dropbox/org")
 
+;; Set a location for the list of agena files
+(setq org-agenda-files "~/.emacs.d/agenda_files")
+
 ;; Assigns org-mode to .org files
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
