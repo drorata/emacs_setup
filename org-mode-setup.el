@@ -60,6 +60,7 @@
                       ("private" . ?p)
                       ("work" .?w)
                       ("emacs" .?e)
+                      ("IT" .?I)
                       ))
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
