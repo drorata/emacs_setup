@@ -6,7 +6,12 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil) ; Master file support
+
+;; Line breaking and visualizing
+(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+
+;; Enable refTeX
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
@@ -17,25 +22,23 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
 (setq flyspell-auto-correct-binding (kbd "C-~")) ; or a binding of your choice
 
-					;(add-hook 'TeX-mode-hook (lambda () (define-key TeX-mode-map "<M-tab>" 'TeX-complete-macro)))
-
 ;; Enable clevref in tex-mode
 (defun reftex-format-cref (label def-fmt)
   (format "\\cref{%s}" label))
 (setq reftex-format-ref-function 'reftex-format-cref)
 
 ;; So that RefTeX recognizes bibliographies in \addbibresource
-					;(setq reftex-bibliography-commands (quote ("addbibresource")))
+;; (setq reftex-bibliography-commands (quote ("addbibresource")))
 
 (setq reftex-label-alist
       '(
-	("claim" ?h "th:" nil t)
-	("theorem" ?h "th:" nil t)
-	("lemma" ?h "th:" nil t)
-	("corollary" ?h "th:" nil t)
-	("definition" ?d "def:" nil t)
-	("remark" ?r "rmrk:" nil t)
-	)
+        ("claim" ?h "th:" nil t)
+        ("theorem" ?h "th:" nil t)
+        ("lemma" ?h "th:" nil t)
+        ("corollary" ?h "th:" nil t)
+        ("definition" ?d "def:" nil t)
+        ("remark" ?r "rmrk:" nil t)
+        )
       )
 
 ;; Adds environments to the C-c C-e
@@ -131,4 +134,12 @@
 ;; COMMAND-SHIFT-CLICK to jump to the location in the PDF
 (add-hook 'LaTeX-mode-hook
           (lambda () (local-set-key (kbd "<S-s-mouse-1>") #'TeX-view))
+          )
+
+;; Key bindings in TeX-mode
+;; (add-hook 'TeX-mode-hook (lambda () (define-key TeX-mode-map "<M-tab>" 'TeX-complete-macro)))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-RET") 'LaTeX-insert-item)
+            )
           )
