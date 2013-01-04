@@ -7,6 +7,9 @@
 ;; Disable welcome/startup screen/message
 (setq inhibit-startup-message t)
 
+;; "y or n" instead of "yes or no"
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Set the right aspell.
 ;; You have to install aspell - I did it using macports:
 ;; 1. port install aspellen

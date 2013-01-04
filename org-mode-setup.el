@@ -19,6 +19,9 @@
 ;; Auto enable flyspell-mode
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 
+;; Auto fill minor mode in org files
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
 ;; Enable org-indent-mode for org buffers
 (add-hook 'org-mode-hook
           (lambda ()(org-indent-mode t)) t)
