@@ -29,6 +29,9 @@
 ;; Use text-mode abbrev table in org-mode
 (add-hook 'org-mode-hook '(lambda () (setq local-abbrev-table text-mode-abbrev-table)))
 
+;; Set the number of clock items before wrapping them in a LOGBOOK drawer
+(setq org-clock-into-drawer '2)
+
 ;; Capture-org
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
