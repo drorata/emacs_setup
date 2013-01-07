@@ -26,3 +26,4 @@
 (load "cmake-setup")
 (load "backup-setup")
 (load "openwith-setup")
+(load "dictionary-setup")

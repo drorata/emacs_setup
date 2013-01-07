@@ -10,10 +10,13 @@
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 
+;; Customizing the navigation involving the COMMAND key
 (global-set-key (kbd "<s-right>") 'move-end-of-line)
 (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
 (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+(global-set-key (kbd "<s-prior>") 'beginning-of-buffer)
 (global-set-key (kbd "<s-down>") 'end-of-buffer)
+(global-set-key (kbd "<s-next>") 'end-of-buffer)
 
 ;; define the function to kill the characters from the cursor
 ;; to the beginning of the current line
