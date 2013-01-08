@@ -3,6 +3,7 @@
 ;; In addition, note that this code needs "dict" to be installed; I did it
 ;; using macports
 
-(load "dict")
+(load "dictionary")
+(global-set-key (quote [f6]) 'dictionary-word)
 (global-set-key (quote [f7]) 'thesaurus-lookup-word-in-text)
 (global-set-key (quote [f8]) 'dictionary-lookup-word-in-text)
