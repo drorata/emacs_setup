@@ -32,6 +32,10 @@
 ;; Set the number of clock items before wrapping them in a LOGBOOK drawer
 (setq org-clock-into-drawer '2)
 
+;; Enables selection using SHIFT, while maintaining useful actions
+;; related to SHITF in org
+(setq org-support-shift-select 't)
+
 ;; Capture-org
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
