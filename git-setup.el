@@ -23,8 +23,8 @@
 ;; change magit diff colors
 (eval-after-load 'magit
   '(progn
-     (set-face-foreground 'magit-diff-add "blue")
-     (set-face-foreground 'magit-diff-del "orange")
+     (set-face-foreground 'magit-diff-add "lightblue")
+     (set-face-foreground 'magit-diff-del "lightred")
      (when (not window-system)
        (set-face-background 'magit-item-highlight "black"))))
 
