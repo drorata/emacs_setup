@@ -2,7 +2,7 @@
 ;; YetAnotherSnippet
 ;; http://code.google.com/p/yasnippet/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-					; Init:
+;; Init:
 (add-to-list 'load-path
 	     "~/Library/elisp/yasnippet")
 (require 'yasnippet)
@@ -12,6 +12,6 @@
 
 (setq yas/triggers-in-field t); Enable nested triggering of snippets
 ;; Develop and keep personal snippets
-(setq yas/root-directory "~/Library/elisp/yas-snippets")
+(setq yas/root-directory "~/.emacs.d/packages/yas-snippets")
 ;; Load the snippets
 (yas/load-directory yas/root-directory)

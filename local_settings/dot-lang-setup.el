@@ -1,2 +1,2 @@
 ;; Enable dot-language mode
-(load-file "~/Library/elisp/graphviz-dot-mode.el")
+(load-file "~/.emacs.d/packages/graphviz-dot-mode.el")
