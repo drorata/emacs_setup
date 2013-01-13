@@ -1,3 +1,4 @@
+(setq load-path (cons "~/.emacs.d/local_settings" load-path))
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
