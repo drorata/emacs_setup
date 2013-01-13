@@ -1,0 +1,55 @@
+# -*- mode: snippet -*-
+# name: formalFUletter
+# group: Templates
+# key: formalFU
+# --
+
+\documentclass[pagenumber=footcenter,locfield=wide]{scrlttr2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{paralist}
+
+\KOMAoptions{%
+paper=a4,%
+fromalign=right,%
+fromrule=below,%
+parskip=full,%
+addrfield=true,%
+backaddress=false,%
+numericaldate=false,%
+pagenumber=botright,%
+foldmarks=on,%
+fromphone=true,%
+fromemail=true,%
+enlargefirstpage=off,%
+footsepline=off
+}
+
+
+\setkomavar{fromname}{Dror Atariah}
+\setkomavar{fromaddress}{Baseler Str. 93 \\ Berlin, 12205 \\ Germany}
+\setkomavar{fromurl}{http://page.mi.fu-berlin.de/atariah/}
+\setkomavar{fromphone}{+49-176-20280996}
+\setkomavar{fromemail}{dror.atariah@fu-berlin.de}
+
+\setkomavar{signature}{Dror Atariah}
+
+\setkomavar{subject}{Subject goes here}
+
+\begin{document}
+
+\begin{letter}{John Smith \\ Baseler Str. 92 \\ Berlin, 12205 \\ Germany}
+
+\opening{Dear Prof. ...}
+
+\emph{Content... TBA}
+
+\closing{Best wishes,}
+
+\ps{This is the P.S.}
+\encl{List attachments here}
+
+\end{letter}
+
+\end{document}

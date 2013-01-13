@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# contributor: Dror Atariah
+# key: align
+# group: Math
+# name: align
+# --
+
+\begin{align}
+\label{${1:"waiting for reftex-label call..."$(unless yas/modified-p (reftex-label nil 'dont-insert))}}
+$2
+\end{align}
+$3

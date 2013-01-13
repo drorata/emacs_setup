@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: latex footnote
+# key: foot
+# type: command
+# group: Text
+# --
+(skip-syntax-backward " ")
+(yas/expand-snippet "%
+\\footnote{${1:the footnote test}} %
+")

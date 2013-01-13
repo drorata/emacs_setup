@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Todo item
+# key: todo
+# type: command
+# group: Text
+# --
+(skip-syntax-backward " ")
+(yas/expand-snippet "%
+\\todo{${1:TODO's text}} %
+")

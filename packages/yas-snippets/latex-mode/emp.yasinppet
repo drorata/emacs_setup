@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Dror Atariah
+# key: emp
+# group: Text
+# name: Emph \emph{}
+# --
+\emph{$1}$2
