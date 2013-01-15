@@ -8,3 +8,6 @@
 (eval-after-load "flyspell"
   '(progn
      (define-key flyspell-mouse-map [(mouse-1)] #'flyspell-correct-word)))
+
+;; Enable flyspell-prog-mode which checks spelling in comments of code
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
