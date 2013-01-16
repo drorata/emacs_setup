@@ -117,13 +117,12 @@
 ;;
 ;; Set additional fontifications of macros
 ;; http://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
-(setq font-latex-match-textual-keywords
-      '(("todo" "[{"))
-      )
 (setq font-latex-match-reference-keywords
       '(("cref" "*[{")
-        ("Cref" "*[{"))
-      )
+        ("Cref" "*[{")
+        ("todo" "[{")
+        ("includegraphics" "[{"))
+)
 
 ;;;;;
 ;; Enable emacs->skim sync
