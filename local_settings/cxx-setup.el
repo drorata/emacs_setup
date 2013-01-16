@@ -67,3 +67,6 @@
 ;; Line numbering mode
 (add-hook 'c++-mode-hook
  	  (lambda () (linum-mode 1)))
+
+;; Attempt to reassign the default gdb command to point to gdb64
+;; (setq gud-gdb-command-name "~/Applications/gdb/gdb-7.5/apps/gdb/gdb -i mi")
