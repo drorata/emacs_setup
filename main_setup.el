@@ -28,3 +28,4 @@
 (load "backup-setup")
 (load "openwith-setup")
 (load "dictionary-setup")
+(load "dired_setup")
