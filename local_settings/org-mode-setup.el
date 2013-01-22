@@ -69,6 +69,8 @@
                       ("work" .?w)
                       ("emacs" .?e)
                       ("IT" .?I)
+                      ("cspace_parameetr" . ?c)
+                      ("opt_quad_surf_approx" . ?o)
                       ))
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
