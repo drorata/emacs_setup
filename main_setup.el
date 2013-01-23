@@ -5,6 +5,7 @@
 
 (load "general-setup")
 (load "theme")
+(load "frame-size-setting")
 (load "bindings")
 (load "flyspell-setup")
 (load "ido-setup")
