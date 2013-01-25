@@ -7,9 +7,15 @@
         (if (string-match "exited abnormally" str)
             ;;there were errors
             (message "compilation errors, press C-x ` to visit")
-          ;;no errors, make the compilation window go away in 0.5 seconds
-          (run-at-time 0.5 nil 'delete-windows-on buf)
-	  (message "NO COMPILATION ERRORS! Thank you dear compiler..."))))
+          ;;no errors
+          (progn
+            (if ( < (frame-width) 163)
+                ;; make the compilation window go away in 1.5 seconds
+                ;; only if the frame width is smaller then 85 chars.
+                (run-at-time 1.5 nil 'delete-windows-on buf)
+              )
+            (message "NO COMPILATION ERRORS! Thank you dear compiler..."))
+          )))
 
 ;; Wraps lines in the compilation buffer.
 ;; http://stackoverflow.com/questions/1292936/line-wrapping-within-emacs-compilation-buffer
