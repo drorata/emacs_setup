@@ -72,6 +72,22 @@
 ;; Enable server
 (server-start)
 
+;; Opening files
+;; Visits files in existing frames
+(setq ns-pop-up-frames nil)
+;; In addition I added the following script named /usr/bin/emacs:
+;; ------
+;; #!/bin/sh
+;; open -a /Applications/Emacs.app/Contents/MacOS/Emacs $*
+;; ------
+;; and made it executable. This way I can open new files directly from
+;; the command line with no new frames which pop up! For the sake of fun I added
+;; ------
+;; alias em='open -a /Applications/Emacs.app $1'
+;; ------
+;; to my .bashrc
+
+
 ;; Customize the frame's title
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
