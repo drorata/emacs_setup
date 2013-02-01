@@ -11,6 +11,9 @@
 ;; Highlight current line
 (global-hl-line-mode t) ; turn it on for all modes by default
 
+;; Enables overwriting a selected text
+(delete-selection-mode t)
+
 ;; Line/column number modes
 (setq line-number-mode t)
 (setq column-number-mode t)

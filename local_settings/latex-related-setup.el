@@ -73,10 +73,10 @@
 
 ;; Add support of latexmk
 (add-hook 'LaTeX-mode-hook (lambda ()
-			     (push
-			      '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
-				:help "Run Latexmk on file")
-			      TeX-command-list)))
+                             (push
+                              '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+                                :help "Run Latexmk on file")
+                              TeX-command-list)))
 
 '("%(-PDF)"
   (lambda ()
@@ -107,7 +107,7 @@
 
 (add-hook 'LaTeX-mode-hook
           (lambda () (local-set-key (kbd "C-0") #'run-latexmk))
-	  )
+          )
 
 ;; Automatically activate TeX-fold-mode.
 ;; http://tex.stackexchange.com/questions/52179/what-is-your-favorite-emacs-and-or-auctex-command-trick
