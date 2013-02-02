@@ -45,6 +45,10 @@
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+datetree (concat org-directory "/diary.org"))
                "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("v" "Vocabulary" entry
+               (file+headline (concat org-directory "/vocab.org")
+                              "Vocabulary")
+               "* Word :drill:\n%^ \n** Answer \n%^")
               )))
 
 ;; Make use of refTeX in org-mode
@@ -99,3 +103,7 @@
 ;; MobileOrg
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
 (setq org-mobile-inbox-for-pull "~/Dropbox/MobileOrg/from-mobile.org")
+
+
+;; Org drill
+(require 'org-drill)

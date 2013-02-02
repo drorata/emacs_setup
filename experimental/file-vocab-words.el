@@ -32,12 +32,13 @@
 
   ;; Find the first letter of vocab-word and store it (capitalized)
   ;; in first-letter
-  (let* ((first-letter (upcase (substring vocab-word 0 1))))
-    (print first-letter))
+  ;; (let* ((first-letter (upcase (substring vocab-word 0 1))))
+  ;;   (print first-letter))
 
   (goto-char (point-max))
   (newline)
   (org-insert-heading)
+  (org-set-tags-command "drill")
   (insert vocab-word)
   (newline)
   (insert definition)
