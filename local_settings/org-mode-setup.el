@@ -48,7 +48,7 @@
               ("v" "Vocabulary" entry
                (file+headline (concat org-directory "/vocab.org")
                               "Vocabulary")
-               "* Word :drill:\n%^ \n** Answer \n%^")
+               "* %^{The word} :drill:\n %t\n %^{Extended word (may be empty)} \n** Answer \n%^{The definition}")
               )))
 
 ;; Make use of refTeX in org-mode
