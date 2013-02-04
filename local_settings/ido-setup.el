@@ -5,10 +5,20 @@
 ;;-----------------------------
 (require 'ido)
 (ido-mode t)
-;; fuzzy matching is a must have
-(setq ido-enable-flex-matching t)
-;; forget latest selected directory names
-(setq ido-enable-last-directory-history nil)
+
+(setq
+ ido-save-directory-list-file "~/.emacs.d/cache/ido.last"
+ ido-case-fold  nil   ;; Not case-insensitive
+ ido-confirm-unique-completion t     ;; wait for RET, even with unique completion
+ ido-create-new-buffer 'always
+ ido-enable-flex-matching t          ;; Must have!
+ ido-enable-last-directory-history t ;; remember last used dirs
+ ido-max-work-directory-list 30      ;; should be enough
+ ido-max-work-file-list 50           ;; remember many
+ ido-use-filename-at-point nil       ;; don't use filename at point
+ ido-use-url-at-point nil            ;; don't use url at point
+ ido-enable-prefix nil
+ ido-max-prospects 12)
 
 (custom-set-faces
  ;; Face used by ido for highlighting subdirs in the alternatives.
