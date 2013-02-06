@@ -107,3 +107,4 @@
 
 ;; Org drill
 (require 'org-drill)
+(setq org-drill-save-buffers-after-drill-sessions-p nil)
