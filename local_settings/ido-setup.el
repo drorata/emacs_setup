@@ -8,7 +8,7 @@
 
 (setq
  ido-save-directory-list-file "~/.emacs.d/cache/ido.last"
- ido-case-fold  nil   ;; Not case-insensitive
+ ido-case-fold  t   ;; Not case-insensitive
  ido-confirm-unique-completion t     ;; wait for RET, even with unique completion
  ido-create-new-buffer 'always
  ido-enable-flex-matching t          ;; Must have!

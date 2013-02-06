@@ -48,7 +48,7 @@
               ("v" "Vocabulary" entry
                (file+headline (concat org-directory "/vocab.org")
                               "Vocabulary")
-               "* %^{The word} :drill:\n %t\n %^{Extended word (may be empty)} \n** Answer \n%^{The definition}")
+               "* %^{The word} :drill:\n:PROPERTIES:\n:Part-of-speech: %^{Part of speech|verb|noun|adj|adv}\n:END:\n %t\n %^{Extended word (may be empty)} \n** Answer \n%^{The definition}")
               )))
 
 ;; Make use of refTeX in org-mode
