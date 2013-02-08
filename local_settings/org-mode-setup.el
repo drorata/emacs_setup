@@ -101,9 +101,7 @@
 (setq org-latex-to-pdf-process (list "latexmk -f -pdf %f"))
 
 ;; MobileOrg
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-(setq org-mobile-inbox-for-pull "~/Dropbox/MobileOrg/from-mobile.org")
-
+(load "mobileorg-setup")
 
 ;; Org drill
 (require 'org-drill)
