@@ -4,6 +4,7 @@
 
 
 (load "general-setup")
+(load "general-functions")
 (load "theme")
 (load "frame-size-setting")
 (load "bindings")
