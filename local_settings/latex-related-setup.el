@@ -97,6 +97,7 @@
   (let ((TeX-save-query nil)
         (TeX-process-asynchronous nil)
         (master-file (TeX-master-file)))
+    (fill-paragraph)
     (TeX-save-document "")
     (TeX-run-TeX "latexmk"
 		 (TeX-command-expand "latexmk -pdf %t" 'TeX-master-file)
