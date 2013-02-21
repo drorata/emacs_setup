@@ -1,6 +1,7 @@
 ;; This starts the edit-server which is used to edit text areas in Chrome.
 ;; See: http://psung.blogspot.de/2010/01/edit-with-emacs-chrome-extension.html?m=1
 ;; See: http://stackoverflow.com/q/10383986/671013
+;; See: http://www.emacswiki.org/emacs/Edit_with_Emacs
 
 (require 'edit-server)
 (edit-server-start)
