@@ -27,6 +27,10 @@
 ;; Revert to changes on disk automatically
 (global-auto-revert-mode t)
 
+;; Add external packages
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 ;;---------------------------------------------------
 ;; Matching braces highlighting
 ;; Enables and configure mathcing braces highlighting
