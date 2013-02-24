@@ -27,9 +27,10 @@
 ;; Revert to changes on disk automatically
 (global-auto-revert-mode t)
 
-;; Add external packages
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; ;; Add external packages
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;;---------------------------------------------------
 ;; Matching braces highlighting
