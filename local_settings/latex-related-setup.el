@@ -7,8 +7,11 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil) ; Master file support
 
+;;;;;
+;; This is still on going setting.. Find how to work nicely with hard line
+;; breaks.
+;;;;;
 ;; Line breaking and visualizing
-(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 
 ;; Enable refTeX
@@ -97,7 +100,6 @@
   (let ((TeX-save-query nil)
         (TeX-process-asynchronous nil)
         (master-file (TeX-master-file)))
-    (fill-paragraph)
     (TeX-save-document "")
     (TeX-run-TeX "latexmk"
 		 (TeX-command-expand "latexmk -pdf %t" 'TeX-master-file)

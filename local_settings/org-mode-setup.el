@@ -53,13 +53,16 @@
 
 ;; Make use of refTeX in org-mode
 (defun org-mode-reftex-setup ()
+  "Setups RefTeX to be used with a org file. Code is based on http://www.mfasold.net/blog/2009/02/using-emacs-org-mode-to-draft-papers/.
+
+Once you run this, you will be asked to set a master file of the org."
+  (interactive)
   (load-library "reftex")
   (and (buffer-file-name)
        (file-exists-p (buffer-file-name))
        (reftex-parse-all))
   (define-key org-mode-map (kbd "C-c )") 'reftex-citation)
   )
-(add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
 ;; Open indirect buffer in new frame
 (setq org-indirect-buffer-display 'new-frame)

@@ -19,7 +19,8 @@
                     (org-mobile-push-with-delay 30)))
               )))
 
-(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
+;; Refreshes agenda file each day
+(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1)))
 
 (org-mobile-pull) ;; run org-mobile-pull at startup
 
