@@ -27,9 +27,6 @@
 ;; Use text-mode abbrev table in org-mode
 (add-hook 'org-mode-hook '(lambda () (setq local-abbrev-table text-mode-abbrev-table)))
 
-;; Set the number of clock items before wrapping them in a LOGBOOK drawer
-(setq org-clock-into-drawer '2)
-
 ;; Enables selection using SHIFT, while maintaining useful actions
 ;; related to SHITF in org
 (setq org-support-shift-select 't)
@@ -102,6 +99,20 @@ Once you run this, you will be asked to set a master file of the org."
 
 ;; set latexmk the default LaTeX compiler for org-mode and in general
 (setq org-latex-to-pdf-process (list "latexmk -f -pdf %f"))
+
+;; Enable clocking across sessions
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
+;; Set the number of clock items before wrapping them in a LOGBOOK drawer
+(setq org-clock-into-drawer '2)
+
+;; Set the number of clock items before wrapping them in a LOGBOOK drawer
+(setq org-clock-into-drawer '2)
+
+(custom-set-faces
+ '(org-clock-overlay ((t (:background "gridColor" :foreground "black"))))
+)
 
 ;; MobileOrg
 (load "mobileorg-setup")
