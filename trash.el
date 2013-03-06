@@ -14,20 +14,7 @@
 ;; ;;                             (left . (- 1))
 ;; ;;                             (top . 0)))))
 
-;; ;; org2blog
-;; (require 'xml-rpc)
-;; (setq load-path (cons "~/Library/elisp/org2blog/" load-path))
-;; (require 'org2blog-autoloads)
 
-;; (setq org2blog/wp-blog-alist
-;;       '(("drorata"
-;; 	 :url "http://drorata.wordpress.com/xmlrpc.php"
-;; 	 :username "drorata")
-;; 	("TeX.SE-Blog"
-;; 	 :url "http://tex.blogoverflow.com/xmlrpc.php"
-;; 	 :username "droratariah")
-;; 	)
-;;       )
 
 ;; ;; org to LaTeX beamer
 ;; ;; Add

@@ -121,3 +121,16 @@ Once you run this, you will be asked to set a master file of the org."
 (require 'org-drill)
 (setq org-drill-save-buffers-after-drill-sessions-p nil)
 (setq org-drill-scope 'file-no-restriction)
+
+;; org2blog
+(require 'org2blog-autoloads)
+
+(setq org2blog/wp-blog-alist
+            '(("drorata"
+      	 :url "http://drorata.wordpress.com/xmlrpc.php"
+      	 :username "drorata")
+      	("TeX.SE-Blog"
+      	 :url "http://tex.blogoverflow.com/xmlrpc.php"
+      	 :username "droratariah")
+      	)
+            )
