@@ -1,3 +1,6 @@
+
+(set-background-color "#DEDEDE")
+
 ;;; Theme customization
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/zenburn")
 ;; (load-theme 'zenburn t)
