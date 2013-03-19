@@ -32,3 +32,4 @@
 (load "dictionary-setup")
 (load "dired_setup")
 (load "edit-server-setup")
+(load "sage-setup")
