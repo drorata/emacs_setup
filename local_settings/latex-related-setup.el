@@ -39,6 +39,7 @@
         ("theorem" ?h "th:" nil t)
         ("lemma" ?h "th:" nil t)
         ("corollary" ?h "th:" nil t)
+        ("condition" ?h "cond:" nil t)
         ("definition" ?d "def:" nil t)
         ("remark" ?r "rmrk:" nil t)
         )
@@ -75,6 +76,12 @@
 (setq outline-minor-mode-prefix "\C-c\C-o") ; Or something else
 
 ;; Add support of latexmk
+;; First add the texbin to the path
+(setenv "PATH"
+        (concat
+         "/usr/texbin" ":"
+         (getenv "PATH")))
+;; Config the TeX-command-list
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (push
                               '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
