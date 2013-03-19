@@ -1,5 +1,5 @@
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
-(setq org-mobile-inbox-for-pull "~/Dropbox/MobileOrg/from-mobile.org")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/from-mobile.org")
 
 (defvar org-mobile-push-timer nil
   "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
