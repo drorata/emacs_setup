@@ -102,5 +102,6 @@
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;; Use default mac mailer for emails
+;; TODO: run these only when using mac OS X
 (setq browse-url-mailto-function 'browse-url-generic)
 (setq browse-url-generic-program "open")
