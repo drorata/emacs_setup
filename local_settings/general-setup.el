@@ -100,3 +100,7 @@
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+;; Use default mac mailer for emails
+(setq browse-url-mailto-function 'browse-url-generic)
+(setq browse-url-generic-program "open")
