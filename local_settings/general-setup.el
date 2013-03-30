@@ -8,6 +8,9 @@
 ;; "y or n" instead of "yes or no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Enable downcase-region
+(put 'downcase-region 'disabled nil)
+
 ;; Highlight current line
 (global-hl-line-mode t) ; turn it on for all modes by default
 
