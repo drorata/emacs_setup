@@ -1,6 +1,6 @@
-(add-to-list 'load-path (expand-file-name "/Applications/Sage-5.7-OSX-64bit-10.6.app/Contents/Resources/sage/local/share/emacs/"))
-(require 'sage "sage")
-(setq sage-command "/Applications/Sage-5.7-OSX-64bit-10.6.app/Contents/Resources/sage/sage")
+;; (add-to-list 'load-path (expand-file-name "/Applications/Sage-5.7-OSX-64bit-10.6.app/Contents/Resources/sage/local/share/emacs/"))
+;; (require 'sage "sage")
+;; (setq sage-command "/Applications/Sage-5.7-OSX-64bit-10.6.app/Contents/Resources/sage/sage")
 
 ;; If you want sage-view to typeset all your output and have plot()
 ;; commands inline, uncomment the following line and configure sage-view:
