@@ -39,6 +39,7 @@
         ("theorem" ?h "th:" nil t)
         ("lemma" ?h "th:" nil t)
         ("corollary" ?h "th:" nil t)
+        ("proposition" ?h "th:" nil t)
         ("condition" ?h "cond:" nil t)
         ("definition" ?d "def:" nil t)
         ("remark" ?r "rmrk:" nil t)
