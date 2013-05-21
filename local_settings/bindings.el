@@ -8,16 +8,16 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
 ;; map the window manipulation keys to meta 0, 1, 2, o
-(global-set-key (kbd "M-3") 'split-window-horizontally) ; was digit-argument
-(global-set-key (kbd "M-2") 'split-window-vertically) ; was digit-argument
-(global-set-key (kbd "M-1") 'delete-other-windows) ; was digit-argument
-(global-set-key (kbd "M-0") 'delete-window) ; was digit-argument
-(global-set-key (kbd "M-o") 'other-window) ; was facemenu-keymap
+(global-set-key (kbd "s-3") 'split-window-horizontally) ; was digit-argument
+(global-set-key (kbd "s-2") 'split-window-vertically) ; was digit-argument
+(global-set-key (kbd "s-1") 'delete-other-windows) ; was digit-argument
+(global-set-key (kbd "s-0") 'delete-window) ; was digit-argument
+(global-set-key (kbd "s-o") 'other-window) ; was facemenu-keymap
 (defun reverse-other-window() ;; previous window
   (interactive)
   (other-window -1)
   )
-(define-key (current-global-map) (kbd "M-O") 'reverse-other-window)
+(define-key (current-global-map) (kbd "s-O") 'reverse-other-window)
 
 ;; Replace dired's M-o
 (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "M-o") 'other-window))) ; was dired-omit-mode
