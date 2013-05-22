@@ -31,7 +31,7 @@
 (setq reftex-format-ref-function 'reftex-format-cref)
 
 ;; So that RefTeX recognizes bibliographies in \addbibresource
-;; (setq reftex-bibliography-commands (quote ("addbibresource")))
+(setq reftex-bibliography-commands (quote ("addbibresource")))
 
 (setq reftex-label-alist
       '(
