@@ -34,7 +34,9 @@
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
-;; TODO: Easier buffer switching. In particular next/previous. Something like this
-;; should work, but it is not compatible with org mode
-;; (global-set-key (kbd "<C-tab>") 'next-buffer)
-;; (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
+;; Easier buffer switching. In particular next/previous.
+(if (eq system-type 'darwin)
+    (progn
+      (global-set-key (kbd "s-]") 'next-buffer)
+      (global-set-key (kbd "s-[") 'previous-buffer)
+      ))
