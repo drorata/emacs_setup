@@ -123,6 +123,8 @@ Once you run this, you will be asked to set a master file of the org."
 (setq org-drill-scope 'file-no-restriction)
 
 ;; org2blog
+(setq load-path (cons "~/.emacs.d/packages/metaweblog/" load-path))
+(require 'metaweblog)
 (require 'org2blog-autoloads)
 
 (setq org2blog/wp-blog-alist
