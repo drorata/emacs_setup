@@ -121,3 +121,6 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)       ; use versioned backups
+
+;; Assign xml-mode to plist files
+(add-to-list 'auto-mode-alist '("\\.plist\\'" . xml-mode))
