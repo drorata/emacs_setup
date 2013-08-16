@@ -36,6 +36,11 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
+;; Set a directory for image thumbnails
+(setq image-dired-dir "~/.emacs.d/cache/image-dired/")
+;; Where to store cookies
+(setq url-configuration-directory "~/.emacs.d/cache/url")
+
 ;;---------------------------------------------------
 ;; Matching braces highlighting
 ;; Enables and configure mathcing braces highlighting
