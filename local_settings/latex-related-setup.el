@@ -43,7 +43,6 @@
         ("condition" ?h "cond:" nil t)
         ("definition" ?d "def:" nil t)
         ("remark" ?r "rmrk:" nil t)
-        ("chapter" ?s "chap:" nil t)
         )
       )
 
