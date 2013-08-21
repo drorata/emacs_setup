@@ -153,3 +153,8 @@
             (local-set-key (kbd "M-RET") 'LaTeX-insert-item)
             )
           )
+
+;; Swap {/[ and }/]
+;; See: http://superuser.com/q/634564/57249 for further details.
+(require 'swap-braces)
+(add-hook 'LaTeX-mode-hook 'swap-braces-mode)
