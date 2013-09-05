@@ -7,16 +7,15 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil) ; Master file support
 
-;;;;;
-;; This is still on going setting.. Find how to work nicely with hard line
-;; breaks.
-;;;;;
 ;; Line breaking and visualizing
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 
 ;; Enable refTeX
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
+
+;; Enable yas in LaTeX mode
+(add-hook 'LaTeX-mode-hook 'yas-minor-mode)
 
 ;; Enable LaTeX-math-mode by default
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
@@ -158,3 +157,7 @@
 ;; See: http://superuser.com/q/634564/57249 for further details.
 (require 'swap-braces)
 (add-hook 'LaTeX-mode-hook 'swap-braces-mode)
+
+;; " expands into csquotes macros
+(setq LaTeX-csquotes-close-quote "}"
+      LaTeX-csquotes-open-quote "\\enquote{")
