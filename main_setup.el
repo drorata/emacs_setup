@@ -5,8 +5,6 @@
 
 (load "general-setup")
 (load "general-functions")
-(load "theme")
-(load "frame-size-setting")
 (load "bindings")
 (load "flyspell-setup")
 (load "ido-setup")
@@ -33,3 +31,4 @@
 (load "edit-server-setup")
 (load "sage-setup")
 (load "html-setup")
+(load "theme")
