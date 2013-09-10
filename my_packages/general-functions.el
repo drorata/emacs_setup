@@ -26,3 +26,28 @@
   (set-frame-position (selected-frame) 0 0)
   (set-frame-size (selected-frame) 177 49)
   )
+
+(defun insert-code-tag ()
+  "Insert <code> and </code> around word or selected text
+
+You can mark a region or set the point on a word and the function will
+wrap the input with the html <code> tag."
+  (interactive)
+  (let (pos1 pos2 bds len)
+    (if (region-active-p)
+        (setq pos1 (region-beginning) pos2 (region-end))
+      (progn
+        (setq bds (bounds-of-thing-at-point 'symbol))
+        (setq pos1 (car bds) pos2 (cdr bds))
+        )
+      )
+    ;; now, pos1 and pos2 are the starting and ending positions of the
+    ;; current word, or current text selection if exist.
+    (setq len (- pos2 pos1))
+    (goto-char pos1)
+    (insert "<code>")
+    (forward-char len)
+    ;; (goto-char pos2)
+    (insert "</code>")
+    )
+  )
