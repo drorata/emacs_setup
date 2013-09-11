@@ -1,5 +1,7 @@
 (deftheme dark-emacs
-  "Dark Emacs is designed to give the same look and feel as
+  "This is a fork from the dark-emacs theme of Suvayu Ali.
+
+  Dark Emacs is designed to give the same look and feel as
   `emacs --no-window-system'. It is based on a theme made by the
   emacswiki user, ZWZ. The original can be found at
   http://www.emacswiki.org/emacs/zwz.
@@ -9,7 +11,7 @@
   There are some `org-mode' related faces defined for TODO
   keywords and special tags as well.
 
-  Color theme by Suvayu Ali. Created 2012-04-28.")
+  Color theme forked and updated by Dror Atariah. Created Sep. 2013.")
 
 (custom-theme-set-variables
  'dark-emacs
