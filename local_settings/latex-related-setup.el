@@ -131,8 +131,8 @@
       '(("cref" "*[{")
         ("Cref" "*[{")
         ("todo" "[{")
-        ("includegraphics" "[{"))
-)
+        ("includegraphics" "[{")
+        ("citeauthor" "[{")))
 
 ;;;;;
 ;; Enable emacs->skim sync
