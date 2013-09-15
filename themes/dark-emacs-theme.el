@@ -116,7 +116,7 @@
                             (:foreground "Red1" :inherit (bold)))
                            (((type tty))
                             (:inherit (error bold)))))
-;; The highlited line (current line)
+;; The highlighted line (current line)
  '(highlight ((default (:background "yellow" :inherit (default)))
               (((type graphic))
                (:foreground "black" :background "blue" :inherit (default)))))
