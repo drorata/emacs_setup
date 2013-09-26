@@ -110,10 +110,6 @@ Once you run this, you will be asked to set a master file of the org."
 ;; Set the number of clock items before wrapping them in a LOGBOOK drawer
 (setq org-clock-into-drawer '2)
 
-(custom-set-faces
- '(org-clock-overlay ((t (:background "gridColor" :foreground "black"))))
-)
-
 ;; MobileOrg
 (load "mobileorg-setup")
 
