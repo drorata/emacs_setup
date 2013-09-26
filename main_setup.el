@@ -31,4 +31,4 @@
 (load "edit-server-setup")
 (load "sage-setup")
 (load "html-setup")
-(load "theme")
+(load "appearance")
