@@ -22,9 +22,7 @@
  '(ido-first-match ((t (:foreground "red"))))
  '(ido-only-match ((t (:foreground "darkgreen"))))
  '(ido-subdir ((t (:foreground "blue"))))
- '(org-clock-overlay ((t (:background "gridColor" :foreground "black")))))
-
-(custom-set-faces
+ '(org-clock-overlay ((t (:background "gridColor" :foreground "black"))))
  ;; vc-colors
  '(diff-added ((t (:foreground "darkgreen"))) 'now)
  '(diff-removed ((t (:foreground "red"))) 'now)
@@ -39,9 +37,6 @@
  ;; '(ido-indicator ((t (:foreground "#ffffff"))))
  ;; Ido face for indicating incomplete regexps. (don't use this either)
  ;; '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
- )
-
-(custom-set-faces
  '(org-clock-overlay ((t (:background "gridColor" :foreground "black"))))
  )
 
