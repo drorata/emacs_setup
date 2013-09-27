@@ -47,3 +47,7 @@
      (set-face-foreground 'magit-diff-del "red")
      (when (not window-system)
        (set-face-background 'magit-item-highlight "black"))))
+
+;; anzu mode customization
+(set-face-attribute 'anzu-mode-line nil
+                    :foreground "red" :weight 'bold)

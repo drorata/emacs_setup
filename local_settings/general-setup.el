@@ -129,3 +129,8 @@
 
 ;; Assign xml-mode to plist files
 (add-to-list 'auto-mode-alist '("\\.plist\\'" . xml-mode))
+
+;; Installed from elpa.
+;; See appearance.el for face customization
+(require 'anzu)
+(global-anzu-mode t)
