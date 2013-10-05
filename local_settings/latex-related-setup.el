@@ -73,6 +73,8 @@
 (add-hook 'LaTeX-mode-hook
           (lambda () (local-set-key (kbd "C-0") #'run-latexmk)))
 
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
 
 ;; Enable outline-mode in LaTeX-mode
 (defun turn-on-outline-minor-mode ()
