@@ -46,3 +46,6 @@
 (global-set-key [M-s-right] 'windmove-right)        ; move to right window
 (global-set-key [M-s-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-s-down] 'windmove-down)          ; move to downer window
+
+;; Flyspell correction bind
+(setq flyspell-auto-correct-binding (kbd "C-~"))
