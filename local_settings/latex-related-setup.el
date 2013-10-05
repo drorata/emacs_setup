@@ -76,6 +76,10 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 
+(add-hook 'LaTeX-mode-hook
+          (lambda (setq TeX-command-default "LatexMK")
+            ))
+
 ;; Enable outline-mode in LaTeX-mode
 (defun turn-on-outline-minor-mode ()
   (outline-minor-mode 1))
