@@ -115,8 +115,15 @@
         (TeX-next-error t)
       (minibuffer-message "latexmk done"))))
 
+;; Key bindings for LaTeX mode
 (add-hook 'LaTeX-mode-hook
           (lambda () (local-set-key (kbd "C-0") #'run-latexmk))
+          )
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "C-c C-v") 'magit-status))
+          )
+(add-hook 'LaTeX-mode-hook
+          (lambda () (local-set-key (kbd "C-c v") 'TeX-view))
           )
 
 ;; Automatically activate TeX-fold-mode.
