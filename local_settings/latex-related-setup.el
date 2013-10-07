@@ -10,22 +10,6 @@
 (setq-default TeX-master nil) ; Master file support
 
 ;;
-;; Hooks
-;;
-;; Line breaking and visualizing
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; Enable yas in LaTeX mode
-(add-hook 'LaTeX-mode-hook 'yas-minor-mode)
-;; Enable LaTeX-math-mode by default
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-;; Auto enable flyspell-mode
-(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
-;; Swap {/[ and }/]
-;; See: http://superuser.com/q/634564/57249 for further details.
-(require 'swap-braces)
-(add-hook 'LaTeX-mode-hook 'swap-braces-mode)
-
-;;
 ;; Adds environments to the C-c C-e
 ;;
 ;; http://superuser.com/questions/122410/adding-autocomplete-options-to-auctex-c-c-c-e
@@ -77,7 +61,7 @@
 (auctex-latexmk-setup)
 
 (add-hook 'LaTeX-mode-hook
-          (lambda (setq TeX-command-default "LatexMK")
+          (lambda () (setq TeX-command-default "LatexMK")
             ))
 
 ;; Enable outline-mode in LaTeX-mode
@@ -176,3 +160,19 @@
         )
       )
 ;; RefTex - end
+
+;;
+;; Hooks
+;;
+;; Line breaking and visualizing
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;; Enable yas in LaTeX mode
+(add-hook 'LaTeX-mode-hook 'yas-minor-mode)
+;; Enable LaTeX-math-mode by default
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+;; Auto enable flyspell-mode
+(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+;; Swap {/[ and }/]
+;; See: http://superuser.com/q/634564/57249 for further details.
+(require 'swap-braces)
+(add-hook 'LaTeX-mode-hook 'swap-braces-mode)
