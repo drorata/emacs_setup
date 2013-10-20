@@ -174,5 +174,15 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
 ;; Swap {/[ and }/]
 ;; See: http://superuser.com/q/634564/57249 for further details.
-(require 'swap-braces)
-(add-hook 'LaTeX-mode-hook 'swap-braces-mode)
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "[") (lambda () (interactive) (insert "{")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "{") (lambda () (interactive) (insert "[")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "]") (lambda () (interactive) (insert "}")))))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-set-key (kbd "}") (lambda () (interactive) (insert "]")))))
