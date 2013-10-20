@@ -67,15 +67,24 @@ Once you run this, you will be asked to set a master file of the org."
 ;; Set common TAGS
 ;; Check: http://sachachua.com/blog/2008/01/tagging-in-org-plus-bonus-code-for-timeclocks-and-tags/
 (setq org-tag-alist '(
-                      ("interesting_questions" . ?i)
-                      ("mittagseminar" . ?m)
-                      ("private" . ?p)
-                      ("work" .?w)
-                      ("emacs" .?e)
-                      ("IT" .?I)
-                      ("cspace_parameetr" . ?c)
-                      ("opt_quad_surf_approx" . ?o)
-                      ("cgal_dev" . ?g)
+                      ("PRIVATE" . ?p)
+                      (:startgroup . nil)
+                      ("WORK" .?w)
+                      (:grouptags . nil)
+                      ("WORK@mittagseminar" . ?m)
+                      ("WORK@open_questions" . ?i)
+                      ("WORK@cgal_dev" . ?g)
+                      ("WORK@cspace_parameetr" . ?c)
+                      ("WORK@opt_quad_approx" . ?o)
+                      (:endgroup .nil)
+                      (:startgroup . nil)
+                      ("IT" . ?I)
+                      (:grouptags . nil)
+                      ("IT@emacs" . nil)
+                      ("IT@git" . nil)
+                      ("IT@TeX" . nil)
+                      (:endgroup . nil)
+                      ("4freeTime" . ?4)
                       ))
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
