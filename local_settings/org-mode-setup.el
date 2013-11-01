@@ -97,6 +97,9 @@ Once you run this, you will be asked to set a master file of the org."
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
 
+;; Add time stamp of refiling
+(setq org-log-refile 'time)
+
 ;; Use full outline paths for refile targets - we file directly with IDO
 (setq org-refile-use-outline-path t)
 
