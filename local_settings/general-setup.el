@@ -127,8 +127,9 @@
  kept-old-versions 2
  version-control t)       ; use versioned backups
 
-;; Assign xml-mode to plist files
+;; Assign modes to file types
 (add-to-list 'auto-mode-alist '("\\.plist\\'" . xml-mode))
+(add-to-list 'auto-mode-alist '("\\.tikz\\'" . latex-mode))
 
 ;; Installed from elpa.
 ;; See appearance.el for face customization
