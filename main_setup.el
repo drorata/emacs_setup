@@ -30,5 +30,6 @@
 (load "dired_setup")
 (load "edit-server-setup")
 (load "sage-setup")
+(load "asymptote")
 (load "html-setup")
 (load "appearance")
