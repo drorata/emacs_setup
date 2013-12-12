@@ -33,3 +33,4 @@
 (load "asymptote")
 (load "html-setup")
 (load "appearance")
+(load "alias")
