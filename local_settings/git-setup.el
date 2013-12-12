@@ -24,6 +24,3 @@
 
 (add-hook 'fundamental-mode-hook
           (lambda () (flyspell-mode 1)))
-
-;; Aliases of magit functions
-(defalias 'gitst 'magit-status)
