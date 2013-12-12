@@ -49,3 +49,8 @@
 
 ;; Flyspell correction bind
 (setq flyspell-auto-correct-binding (kbd "C-~"))
+
+;; M-x like for the f13-f15
+(global-set-key (kbd "<f13>") 'execute-extended-command)
+(global-set-key (kbd "<f14>") 'execute-extended-command)
+(global-set-key (kbd "<f15>") 'execute-extended-command)
