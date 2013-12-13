@@ -13,6 +13,7 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+(when window-system (require 'org-mouse))
 
 ;; Auto enable flyspell-mode
 (add-hook 'org-mode-hook 'turn-on-flyspell)
