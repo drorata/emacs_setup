@@ -51,3 +51,12 @@ wrap the input with the html <code> tag."
     (insert "</code>")
     )
   )
+
+;; Switch to the minibuffer
+;; http://superuser.com/a/132454/57249
+(defun switch-to-minibuffer-window ()
+  "Switch to minibuffer window (if active)"
+  (interactive)
+  (when (active-minibuffer-window)
+    (select-window (active-minibuffer-window))))
+(global-set-key (kbd "<f5>") 'switch-to-minibuffer-window)
