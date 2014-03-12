@@ -170,17 +170,3 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 ;; Auto enable flyspell-mode
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
-;; Swap {/[ and }/]
-;; See: http://superuser.com/q/634564/57249 for further details.
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (local-set-key (kbd "[") (lambda () (interactive) (insert "{")))))
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (local-set-key (kbd "{") (lambda () (interactive) (insert "[")))))
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (local-set-key (kbd "]") (lambda () (interactive) (insert "}")))))
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (local-set-key (kbd "}") (lambda () (interactive) (insert "]")))))
