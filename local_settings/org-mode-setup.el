@@ -87,7 +87,7 @@ Once you run this, you will be asked to set a master file of the org."
                       ("WORK@open_questions" . ?i)
                       ("WORK@diss" . ?d)
                       ("WORK@CV" . nil)
-                      (:endgroup .nil)
+                      (:endgroup . nil)
                       (:startgroup . nil)
                       ("IT" . ?I)
                       (:grouptags . nil)
