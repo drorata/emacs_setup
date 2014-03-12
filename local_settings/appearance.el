@@ -51,3 +51,11 @@
 ;; anzu mode customization
 (set-face-attribute 'anzu-mode-line nil
                     :foreground "red" :weight 'bold)
+
+;; Color of mode-line
+(set-face-attribute 'mode-line nil
+                    :family "Helvetica"
+                    :foreground "white"
+                    :background "blue"
+                    :overline "yellow"
+                    :underline "yellow")
