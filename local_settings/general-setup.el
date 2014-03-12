@@ -1,6 +1,8 @@
+(package-initialize)
 ;; Recursive loading of paths in the .emacs.d directory
-(let ((default-directory "~/.emacs.d/"))
+(let ((default-directory "~/.emacs.d/elpa"))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/.emacs.d/my_packages/")
 
 ;; Disable welcome/startup screen/message
 (setq inhibit-startup-message t)
