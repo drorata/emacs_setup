@@ -124,8 +124,6 @@
 ;; Enable clevref in tex-mode
 (defun reftex-format-cref (label def-fmt)
   (format "\\cref{%s}" label))
-(setq reftex-format-ref-function 'reftex-format-cref)
-(setq reftex-format-ref-function nil)
 
 (eval-after-load
     "latex"
