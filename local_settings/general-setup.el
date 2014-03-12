@@ -133,6 +133,9 @@
 (add-to-list 'auto-mode-alist '("\\.plist\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.tikz\\'" . latex-mode))
 (add-to-list 'auto-mode-alist '("\\.pgfplot\\'" . latex-mode))
+(add-to-list 'auto-mode-alist
+             '("\\(stack\\(exchange\\|overflow\\)\\|superuser\\|askubuntu\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
+             )
 
 ;; Installed from elpa.
 ;; See appearance.el for face customization
