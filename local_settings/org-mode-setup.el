@@ -32,6 +32,17 @@
 ;; related to SHITF in org
 (setq org-support-shift-select 't)
 
+;; Customize the TODO-like keywords
+(setq org-use-fast-todo-selection t)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "PROCESS(p@/!)" "|" "DONE(d!)" "CANCELED(c@/!)")))
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("PROCESS" :foreground "blue" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("CANCELLED" :foreground "forest green" :weight bold))))
+(setq org-log-into-drawer t)
+
 ;; Capture-org
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
