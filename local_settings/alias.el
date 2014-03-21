@@ -4,6 +4,9 @@
 (defalias 'gitst 'magit-status)
 (defalias 'git 'magit-status)
 (defalias 'ir 'indent-region)
+(defalias 'pull 'org-mobile-pull)
+(defalias 'push 'org-mobile-push)
+(defalias 'oa 'org-archive-subtree)
 
 ; elisp
 (defalias 'eb 'eval-buffer)
