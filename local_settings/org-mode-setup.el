@@ -31,6 +31,9 @@
 ;; related to SHITF in org
 (setq org-support-shift-select 't)
 
+;; Enable smart qoutes (http://stackoverflow.com/q/15097114/671013)
+(setq org-export-with-smart-quotes t)
+
 ;; Customize the TODO-like keywords
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords

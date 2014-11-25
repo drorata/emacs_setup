@@ -60,3 +60,12 @@ wrap the input with the html <code> tag."
   (when (active-minibuffer-window)
     (select-window (active-minibuffer-window))))
 (global-set-key (kbd "<f5>") 'switch-to-minibuffer-window)
+
+(defun drorata-bibtex-validate-sort ()
+  "Sort and validate a BiBTeX file"
+  (interactive)
+  (bibtex-sort-buffer)
+  (let ((bibtex-maintain-sorted-entries 't))
+    (bibtex-validate nil)
+    )
+)

@@ -15,3 +15,6 @@
 
 ;; Enable flyspell for certain modes.
 (add-hook 'text-mode-hook 'turn-on-flyspell)
+
+(defun my-no-flyspell-mode (&optional rest)
+  (flyspell-mode -1))

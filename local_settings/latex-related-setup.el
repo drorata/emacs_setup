@@ -60,8 +60,11 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 
+(eval-after-load "tex"
+  '(add-to-list 'TeX-command-list '("Make" "make" TeX-run-command nil t)))
+
 (add-hook 'LaTeX-mode-hook
-          (lambda () (setq TeX-command-default "LatexMK")
+          (lambda () (setq TeX-command-default "Make")
             ))
 
 ;; Enable outline-mode in LaTeX-mode
