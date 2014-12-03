@@ -7,14 +7,3 @@
  '(ls-lisp-verbosity nil)
  '(org-drill-optimal-factor-matrix (quote ((1 (2.36 . 3.86) (2.5 . 4.0) (2.6 . 4.14)))))
  '(safe-local-variable-values (quote ((TeX-master . t)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(diff-added ((t (:foreground "dark green"))))
- '(diff-removed ((t (:foreground "red"))))
- '(ido-first-match ((t (:foreground "red"))))
- '(ido-only-match ((t (:foreground "darkgreen"))))
- '(ido-subdir ((t (:foreground "blue"))))
- '(org-clock-overlay ((t (:background "gridColor" :foreground "black")))))
