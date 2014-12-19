@@ -43,16 +43,21 @@
 ;; Where to store cookies
 (setq url-configuration-directory "~/.emacs.d/cache/url")
 
-;; 2FIX
 ;;---------------------------------------------------
 ;; Matching braces highlighting
 ;; Enables and configure mathcing braces highlighting
+;; http://superuser.com/a/305041/57249
 ;;---------------------------------------------------
+(paren-activate) ;; activates mic-paren
+(setq paren-match-face 'highlight)
+(setq paren-sexp-mode t)
+(setq paren-highlight-offscreen t)
+;; 2FIX
 ;; (show-paren-mode t)
 ;; (setq show-paren-style 'expression)
 ;; ;; Show in the mini-buffer the matching brace in case it is off screen.
 ;; (defadvice show-paren-function
-;;   (after show-matching-paren-offscreen activate)
+;;     (after show-matching-paren-offscreen activate)
 ;;   "If the matching paren is offscreen, show the matching line in the
 ;;         echo area. Has no effect if the character before point is not of
 ;;         the syntax class ')'."
@@ -67,7 +72,6 @@
 ;;             (setq matching-text (blink-matching-open)))
 ;;         (if (not (null matching-text))
 ;;             (message matching-text)))))
-
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
 
