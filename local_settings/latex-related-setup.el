@@ -57,8 +57,9 @@
 (add-hook 'LaTeX-mode-hook
           (lambda () (local-set-key (kbd "C-0") #'run-latexmk)))
 
-(require 'auctex-latexmk)
-(auctex-latexmk-setup)
+;; 2FIX
+;; (require 'auctex-latexmk)
+;; (auctex-latexmk-setup)
 
 (eval-after-load "tex"
   '(add-to-list 'TeX-command-list '("Make" "make" TeX-run-command nil t)))

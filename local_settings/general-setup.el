@@ -43,29 +43,30 @@
 ;; Where to store cookies
 (setq url-configuration-directory "~/.emacs.d/cache/url")
 
+;; 2FIX
 ;;---------------------------------------------------
 ;; Matching braces highlighting
 ;; Enables and configure mathcing braces highlighting
 ;;---------------------------------------------------
-(show-paren-mode t)
-(setq show-paren-style 'expression)
-;; Show in the mini-buffer the matching brace in case it is off screen.
-(defadvice show-paren-function
-  (after show-matching-paren-offscreen activate)
-  "If the matching paren is offscreen, show the matching line in the
-        echo area. Has no effect if the character before point is not of
-        the syntax class ')'."
-  (interactive)
-  (if (not (minibuffer-prompt))
-      (let ((matching-text nil))
-        ;; Only call `blink-matching-open' if the character before point
-        ;; is a close parentheses type character. Otherwise, there's not
-        ;; really any point, and `blink-matching-open' would just echo
-        ;; "Mismatched parentheses", which gets really annoying.
-        (if (char-equal (char-syntax (char-before (point))) ?\))
-            (setq matching-text (blink-matching-open)))
-        (if (not (null matching-text))
-            (message matching-text)))))
+;; (show-paren-mode t)
+;; (setq show-paren-style 'expression)
+;; ;; Show in the mini-buffer the matching brace in case it is off screen.
+;; (defadvice show-paren-function
+;;   (after show-matching-paren-offscreen activate)
+;;   "If the matching paren is offscreen, show the matching line in the
+;;         echo area. Has no effect if the character before point is not of
+;;         the syntax class ')'."
+;;   (interactive)
+;;   (if (not (minibuffer-prompt))
+;;       (let ((matching-text nil))
+;;         ;; Only call `blink-matching-open' if the character before point
+;;         ;; is a close parentheses type character. Otherwise, there's not
+;;         ;; really any point, and `blink-matching-open' would just echo
+;;         ;; "Mismatched parentheses", which gets really annoying.
+;;         (if (char-equal (char-syntax (char-before (point))) ?\))
+;;             (setq matching-text (blink-matching-open)))
+;;         (if (not (null matching-text))
+;;             (message matching-text)))))
 
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
