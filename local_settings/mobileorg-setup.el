@@ -22,7 +22,8 @@
 ;; Refreshes agenda file each day
 (run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1)))
 
-(org-mobile-pull) ;; run org-mobile-pull at startup
+(add-hook 'after-init-hook 'org-mobile-pull)
+(add-hook 'kill-emacs-hook 'org-mobile-push)
 
 ;; 2FIX
 ;; (defun install-monitor (file secs)
