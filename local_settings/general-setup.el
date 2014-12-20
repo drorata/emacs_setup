@@ -44,34 +44,22 @@
 (setq url-configuration-directory "~/.emacs.d/cache/url")
 
 ;;---------------------------------------------------
-;; Matching braces highlighting
+;; Matching braces highlighting - Using mic-paren
 ;; Enables and configure mathcing braces highlighting
 ;; http://superuser.com/a/305041/57249
+;; http://emacs.stackexchange.com/q/5569/861
 ;;---------------------------------------------------
 (paren-activate) ;; activates mic-paren
 (setq paren-match-face 'highlight)
 (setq paren-sexp-mode t)
 (setq paren-highlight-offscreen t)
-;; 2FIX
-;; (show-paren-mode t)
-;; (setq show-paren-style 'expression)
-;; ;; Show in the mini-buffer the matching brace in case it is off screen.
-;; (defadvice show-paren-function
-;;     (after show-matching-paren-offscreen activate)
-;;   "If the matching paren is offscreen, show the matching line in the
-;;         echo area. Has no effect if the character before point is not of
-;;         the syntax class ')'."
-;;   (interactive)
-;;   (if (not (minibuffer-prompt))
-;;       (let ((matching-text nil))
-;;         ;; Only call `blink-matching-open' if the character before point
-;;         ;; is a close parentheses type character. Otherwise, there's not
-;;         ;; really any point, and `blink-matching-open' would just echo
-;;         ;; "Mismatched parentheses", which gets really annoying.
-;;         (if (char-equal (char-syntax (char-before (point))) ?\))
-;;             (setq matching-text (blink-matching-open)))
-;;         (if (not (null matching-text))
-;;             (message matching-text)))))
+;; Disable mic-paren in minibuffer
+(defun da/remove-mic-paren-face-in-minibuffer ()
+  ;; Check if we are in ido related command
+  (when (string-match-p "ido-" (symbol-name this-command))
+    (set (make-variable-buffer-local 'paren-match-face) nil)))
+(add-hook 'minibuffer-setup-hook #'da/remove-mic-paren-face-in-minibuffer)
+
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
 
