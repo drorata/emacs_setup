@@ -156,10 +156,21 @@ Once you run this, you will be asked to set a master file of the org."
 
 (setq org2blog/wp-blog-alist
             '(("drorata"
-      	 :url "http://drorata.wordpress.com/xmlrpc.php"
-      	 :username "drorata")
-      	("TeX.SE-Blog"
-      	 :url "http://tex.blogoverflow.com/xmlrpc.php"
-      	 :username "droratariah")
-      	)
+               :url "http://drorata.wordpress.com/xmlrpc.php"
+               :username "drorata")
+              ("TeX.SE-Blog"
+               :url "http://tex.blogoverflow.com/xmlrpc.php"
+               :username "droratariah")
+              )
             )
+
+;; Babel
+(setq org-src-fontify-natively t)
+
+(setq org-confirm-babel-evaluate nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((elasticsearch . t)
+   (emacs-lisp . t)
+   (python . t)))
