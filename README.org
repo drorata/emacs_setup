@@ -2,20 +2,5 @@
 Here you could find my setup for emacs.
 
 I hope you'd find it useful.
-* Important remarks:
-** My .emacs file
-In practice my =.emacs= file looks like this:
-
-#+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path "~/.emacs.d")
-
-(load "main_setup")
-
-;; Enable a backtrace when problems occur
-;; (setq debug-on-error t)
-#+END_SRC
-
-and all the files which you can find in this repository are located in
-~/.emacs.d. In particular =main_setup.el=!
 * Contact:
 You can contact me: [[mailto:drorata@gmail.com]]
