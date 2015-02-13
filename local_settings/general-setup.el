@@ -63,6 +63,9 @@
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
 
+(require 'symon)
+(symon-mode)
+
 ;; Auto indent for paseted text
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
