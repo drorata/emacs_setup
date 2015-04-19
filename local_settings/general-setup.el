@@ -153,3 +153,14 @@
 
 ;; call function now
 (set-exec-path-from-shell-PATH)
+
+;; Set python virtualenvwrapper
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+(setq venv-location "/Users/drorata/py-envs/")
+
+;; Encoding setting
+(setenv "LANG" "en_US.UTF-8")
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
