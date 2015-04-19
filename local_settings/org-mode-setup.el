@@ -173,4 +173,5 @@ Once you run this, you will be asked to set a master file of the org."
  'org-babel-load-languages
  '((elasticsearch . t)
    (emacs-lisp . t)
-   (python . t)))
+   (python . t)
+   (R . t)))
