@@ -43,28 +43,27 @@
 ;; Where to store cookies
 (setq url-configuration-directory "~/.emacs.d/cache/url")
 
-;;---------------------------------------------------
-;; Matching braces highlighting - Using mic-paren
-;; Enables and configure mathcing braces highlighting
-;; http://superuser.com/a/305041/57249
-;; http://emacs.stackexchange.com/q/5569/861
-;;---------------------------------------------------
-(paren-activate) ;; activates mic-paren
-(setq paren-match-face 'highlight)
-(setq paren-sexp-mode t)
-(setq paren-highlight-offscreen t)
-;; Disable mic-paren in minibuffer
-(defun da/remove-mic-paren-face-in-minibuffer ()
-  ;; Check if we are in ido related command
-  (when (string-match-p "ido-" (symbol-name this-command))
-    (set (make-variable-buffer-local 'paren-match-face) nil)))
-(add-hook 'minibuffer-setup-hook #'da/remove-mic-paren-face-in-minibuffer)
+(show-paren-mode 1)
+(setq show-paren-style 'expression)
+;; ;;---------------------------------------------------
+;; ;; Matching braces highlighting - Using mic-paren
+;; ;; Enables and configure mathcing braces highlighting
+;; ;; http://superuser.com/a/305041/57249
+;; ;; http://emacs.stackexchange.com/q/5569/861
+;; ;;---------------------------------------------------
+;; (paren-activate) ;; activates mic-paren
+;; (setq paren-match-face 'highlight)
+;; (setq paren-sexp-mode t)
+;; (setq paren-highlight-offscreen t)
+;; ;; Disable mic-paren in minibuffer
+;; (defun da/remove-mic-paren-face-in-minibuffer ()
+;;   ;; Check if we are in ido related command
+;;   (when (string-match-p "ido-" (symbol-name this-command))
+;;     (set (make-variable-buffer-local 'paren-match-face) nil)))
+;; (add-hook 'minibuffer-setup-hook #'da/remove-mic-paren-face-in-minibuffer)
 
 ;; Auto Pairing http://www.emacswiki.org/emacs/AutoPairs
 (require 'autopair)
-
-(require 'symon)
-(symon-mode)
 
 ;; Auto indent for paseted text
 (dolist (command '(yank yank-pop))
