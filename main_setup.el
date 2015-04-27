@@ -32,5 +32,6 @@
 (load "sage-setup")
 (load "asymptote")
 (load "html-setup")
+(load "octave-setup")
 (load "appearance")
 (load "alias")
