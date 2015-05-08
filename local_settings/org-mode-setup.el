@@ -165,6 +165,8 @@ Once you run this, you will be asked to set a master file of the org."
             )
 
 ;; Babel
+(setq org-src-preserve-indentation t) ;; http://stackoverflow.com/a/20903001/671013
+
 (setq org-src-fontify-natively t)
 
 (setq org-confirm-babel-evaluate nil)
