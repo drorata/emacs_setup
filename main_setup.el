@@ -2,7 +2,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
-
 (load "general-setup")
 (load "general-functions")
 (load "bindings")
@@ -22,7 +21,6 @@
 (load "yas-setup")
 (load "org-mode-setup")
 (load "latex-related-setup")
-(load "ack-setup")
 (load "cmake-setup")
 (load "backup-setup")
 (load "openwith-setup")
