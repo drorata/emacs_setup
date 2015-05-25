@@ -149,15 +149,19 @@ Once you run this, you will be asked to set a master file of the org."
 (require 'metaweblog)
 (require 'org2blog-autoloads)
 
-(setq org2blog/wp-blog-alist
-            '(("drorata"
-               :url "http://drorata.wordpress.com/xmlrpc.php"
-               :username "drorata")
-              ("TeX.SE-Blog"
-               :url "http://tex.blogoverflow.com/xmlrpc.php"
-               :username "droratariah")
-              )
-            )
+;; org2blog
+;; Contain the form:
+;; (setq org2blog/wp-blog-alist
+;;       '(("blog1"
+;;          :url "http://yourblog1.com/xmlrpc.php"
+;;          :username "username1")
+;;         ("blog2"
+;;          :url "http://yourblog2.com/xmlrpc.php"
+;;          :username "username2")
+;;         )
+;;       )
+(load "org2blog-setup") ;; This file is not tracked
+                        ;; it contains login data
 
 ;; Babel
 (setq org-src-preserve-indentation t) ;; http://stackoverflow.com/a/20903001/671013
