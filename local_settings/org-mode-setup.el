@@ -145,11 +145,6 @@ Once you run this, you will be asked to set a master file of the org."
 ;; MobileOrg
 (load "mobileorg-setup")
 
-;; Org drill
-(require 'org-drill)
-(setq org-drill-save-buffers-after-drill-sessions-p nil)
-(setq org-drill-scope 'file-no-restriction)
-
 ;; org2blog
 (require 'metaweblog)
 (require 'org2blog-autoloads)
